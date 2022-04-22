@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f529a1e84712f17449479a3c126386f4, type: 3}
+  m_Name: InventoryPart
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  type: 1
+  description: Can be used to upgrade your inventory space.
+  weight: 0.2
+  noise: 1
+  speedVal: 0
+  sneakVal: 0
+  disguiseVal: 0
+  invenVal: 25

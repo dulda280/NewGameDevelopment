@@ -1,0 +1,34 @@
+{
+    "name": "Debugger",
+    "maps": [
+        {
+            "name": "Debugger",
+            "id": "b7092dc6-c86d-445d-8dea-083fd8ac2b5d",
+            "actions": [
+                {
+                    "name": "ChangeSuspicion",
+                    "type": "Button",
+                    "id": "c3dbd69c-b7be-4a13-a39c-cece42bb11b8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d4a8103b-548f-4cb7-a010-01ef30c673ad",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeSuspicion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
