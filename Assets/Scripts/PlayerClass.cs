@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class PlayerClass : MonoBehaviour
 {
@@ -71,6 +72,9 @@ public class PlayerClass : MonoBehaviour
             {
                 print("TOO SLOW, LEFT, TIME: " + hwTimerLeft);
                 playerRB.AddForce(Vector3.left* badWalkForce, ForceMode.Impulse);
+                int rand = UnityEngine.Random.Range(1, 3);
+                controller.maxSpeed = rand;
+                playerNoise = 30;
                 hwTimerLeft = 0;
             }
             
@@ -78,12 +82,17 @@ public class PlayerClass : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 hwTimerLeft = 0;
+                controller.maxSpeed = walkSpeed;
+                playerNoise = 0;
             }
 
             if (hwTimerRight > hwTimeCap + 1)
             {
                 print("TOO SLOW, RIGHT, TIME: " + hwTimerRight);
                 playerRB.AddForce(Vector3.right * badWalkForce, ForceMode.Impulse);
+                int rand = UnityEngine.Random.Range(10, 20);
+                controller.maxSpeed = rand;
+                playerNoise = 30;
                 hwTimerRight = 0;
             }
             
@@ -91,6 +100,8 @@ public class PlayerClass : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 hwTimerRight = 0;
+                controller.maxSpeed = walkSpeed;
+                playerNoise = 0;
             }
             
         }
