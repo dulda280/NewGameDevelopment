@@ -13,7 +13,7 @@ public class PlayerClass : MonoBehaviour
     public static bool isHumanWalk;
     public static bool isSneaky;
     public static bool isRunning;
-    public float playerNoise = 10;
+    public float playerNoise = 15;
     public static float scavengeTime = 2.0f;
     public InventoryScript inventory;
     public float invenWeight;
@@ -109,7 +109,7 @@ public class PlayerClass : MonoBehaviour
     public void normalState()
     {
         controller.maxSpeed = walkSpeed;
-        playerNoise = 10;
+        playerNoise = 15;
     }
     
     public void OnTriggerStay(Collider other)

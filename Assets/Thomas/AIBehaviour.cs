@@ -26,7 +26,7 @@ public class AIBehaviour : MonoBehaviour
     private Rigidbody rb;
     private float _lineOfSight = 15;
     private float _playerSuspicion = 0;
-    private float _suspicionThreshold = 100;
+    private float _suspicionThreshold = 0;
     private bool _playerDetected = false;
     private float dangerZone = 5;
     public float _suspicionTimer = 5.0f;
@@ -155,7 +155,7 @@ public class AIBehaviour : MonoBehaviour
                     if (_suspicionTimer > 0.0f)
                     {
                         _suspicionTimer -= Time.deltaTime;
-                        print("THIS IS A TIMER OF 5 SECONDS " + _suspicionTimer);
+                        //print("THIS IS A TIMER OF 5 SECONDS " + _suspicionTimer);
                     }
                     else
                     {
