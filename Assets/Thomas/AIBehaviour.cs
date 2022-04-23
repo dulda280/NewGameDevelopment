@@ -10,6 +10,7 @@ public class AIBehaviour : MonoBehaviour
     // Player Reference
     public Transform player;
     public GameObject playerObject;
+
     public float wanderRadius;
     public float wanderTimer;
 
@@ -26,7 +27,7 @@ public class AIBehaviour : MonoBehaviour
     private Rigidbody rb;
     private float _lineOfSight = 15;
     private float _playerSuspicion = 0;
-    private float _suspicionThreshold = 0;
+    private float _suspicionThreshold = 100;
     private bool _playerDetected = false;
     private float dangerZone = 5;
     public float _suspicionTimer = 5.0f;
@@ -41,7 +42,7 @@ public class AIBehaviour : MonoBehaviour
     // Grab variables
     private bool grabBool = false;
     private bool grabTimeDone = false;
-    private float grabTimer = 0;
+    private float grabTimer = 2.0f;
     private float grabTime = 2;
 
     // An Enumerator of the possible AI States
@@ -120,6 +121,7 @@ public class AIBehaviour : MonoBehaviour
                 public float wanderTimer; // Determines how long the AI has to move to said point before choosing a new one.
             */
             case AI_State.isIdle:
+                transform.position = transform.position;
                 // Resets AI position so it doesn't glitch out
                 rb.velocity = new Vector3(0f,0f,0f); 
                 if (!_playerDetected)
@@ -154,7 +156,7 @@ public class AIBehaviour : MonoBehaviour
                     if (_suspicionTimer > 0.0f)
                     {
                         _suspicionTimer -= Time.deltaTime;
-                        //print("THIS IS A TIMER OF 5 SECONDS " + _suspicionTimer);
+                        // print("THIS IS A TIMER OF 5 SECONDS " + _suspicionTimer);
                     }
                     else
                     {
@@ -257,10 +259,11 @@ public class AIBehaviour : MonoBehaviour
         if (dist <= FOVagent.radius && FOVagent.FieldOfViewCheck())
         {
             agent.SetDestination(player.transform.position);
-            while (dist <= _grabRadius && !grabTimeDone)
+            if (dist <= _grabRadius && !grabTimeDone)
             {
                 grabBool = true;
                 Debug.Log("Player grabbed and is being destroyed");
+                playerObject.GetComponent<ThirdPersonController>().maxSpeed = 0;
                 if (grabTime > 0.0f)
                 {
                     grabTime -= Time.deltaTime;
@@ -274,6 +277,7 @@ public class AIBehaviour : MonoBehaviour
                     // Remove item from players inventory
                     Debug.Log("Player Item Removed");
                     ai_state = AI_State.isIdle;
+                    playerObject.GetComponent<ThirdPersonController>().maxSpeed = 5;
                 }
             }
         }
