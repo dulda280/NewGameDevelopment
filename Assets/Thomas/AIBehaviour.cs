@@ -9,7 +9,7 @@ public class AIBehaviour : MonoBehaviour
 {
     // Player Reference
     public Transform player;
-
+    public GameObject playerObject;
     public float wanderRadius;
     public float wanderTimer;
 
@@ -268,6 +268,8 @@ public class AIBehaviour : MonoBehaviour
                 }
                 else
                 {
+                    playerObject.GetComponent<PlayerClass>().isGrabbed = true;
+                    playerObject.GetComponent<PlayerClass>().isGrabbedInven = true;
                     grabTimeDone = true;
                     grabBool = false;
                     // Remove item from players inventory
@@ -277,5 +279,7 @@ public class AIBehaviour : MonoBehaviour
             }
         }
     }
+
+
 }
     

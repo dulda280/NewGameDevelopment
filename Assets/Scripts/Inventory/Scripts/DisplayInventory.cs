@@ -5,6 +5,7 @@ using TMPro;
 public class DisplayInventory : MonoBehaviour
 {
     public InventoryScript inventory;
+    public GameObject player;
     public int x_start;
     public int y_start;
     public int x_space_between_item;
@@ -41,6 +42,15 @@ public class DisplayInventory : MonoBehaviour
                 itemsDisplayed.Add(inventory.Container[i], obj);
             }
         }
+        if (player.GetComponent<PlayerClass>().isGrabbedInven == true && inventory.Container.Count > 0)
+        {
+            itemsDisplayed.Remove(inventory.Container[0]);
+            print("yoyoo");
+            player.GetComponent<PlayerClass>().isGrabbedInven = false;
+        }
+        
+
+
     }
 
 

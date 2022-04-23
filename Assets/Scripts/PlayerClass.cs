@@ -36,7 +36,8 @@ public class PlayerClass : MonoBehaviour
     public float inventoryVal = 1;
     public float speedVal = 1;
     public float badWalkForce = 5000f;
-
+    public bool isGrabbed = false;
+    public bool isGrabbedInven = false;
     
     
     
@@ -231,6 +232,23 @@ public class PlayerClass : MonoBehaviour
         inventory.Container.Clear();
     }
 
+    private void whenGrabbed()
+    {
+        if (inventory.Container.Count > 0)
+        {
+            inventory.Container.RemoveAt(inventory.Container.Count - 1);
+            print("checker 123");
+            print("inventorycount: " + inventory.Container.Count);
+        }
+        else
+        {
+            hp -= 1;
+            
+        }
+
+
+    }
+
     public void Start()
     {
         panel.SetActive(false);
@@ -240,6 +258,8 @@ public class PlayerClass : MonoBehaviour
         hwTimeCap = 2;
         playerRB = this.GetComponent<Rigidbody>();
         print("RigidBody: " + playerRB);
+        hp = 4;
+        
     }
 
     public void Update()
@@ -318,6 +338,13 @@ public class PlayerClass : MonoBehaviour
         }
 
         checkNoiseSphere();
+
+        if (isGrabbed == true)
+        {
+            whenGrabbed();
+            print("current hp: " + hp);
+            isGrabbed = false;
+        }
        
 
     }
