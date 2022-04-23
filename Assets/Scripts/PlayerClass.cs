@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerClass : MonoBehaviour
 {
     public static string playerName = "";
-    private int hp;
+    public int hp;
     private float weight;
     private int carryCap;
     public static bool isWalking;
@@ -38,6 +38,9 @@ public class PlayerClass : MonoBehaviour
     public float badWalkForce = 5000f;
     public bool isGrabbed = false;
     public bool isGrabbedInven = false;
+    public Camera cameraMain;
+    public Camera cameraGO;
+    public bool hpUpdate = false;
     
     
     
@@ -242,11 +245,18 @@ public class PlayerClass : MonoBehaviour
         }
         else
         {
-            hp -= 1;
-            
+            hp -= 4;
+            hpUpdate = true;
         }
+    }
 
-
+    private void death()
+    {
+        if (hp <= 0)
+        {
+            cameraMain.enabled = false;
+            cameraGO.enabled = true;
+        }
     }
 
     public void Start()
@@ -259,7 +269,8 @@ public class PlayerClass : MonoBehaviour
         playerRB = this.GetComponent<Rigidbody>();
         print("RigidBody: " + playerRB);
         hp = 4;
-        
+        cameraMain.enabled = true;
+        cameraGO.enabled = false;
     }
 
     public void Update()
@@ -344,6 +355,12 @@ public class PlayerClass : MonoBehaviour
             whenGrabbed();
             print("current hp: " + hp);
             isGrabbed = false;
+        }
+
+        if (hp <= 0)
+        {
+            cameraMain.enabled = false;
+            cameraGO.enabled = true;
         }
        
 
