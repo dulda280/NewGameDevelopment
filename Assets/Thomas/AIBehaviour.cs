@@ -120,7 +120,6 @@ public class AIBehaviour : MonoBehaviour
                 public float wanderTimer; // Determines how long the AI has to move to said point before choosing a new one.
             */
             case AI_State.isIdle:
-                transform.position = transform.position;
                 // Resets AI position so it doesn't glitch out
                 rb.velocity = new Vector3(0f,0f,0f); 
                 if (!_playerDetected)
@@ -279,7 +278,5 @@ public class AIBehaviour : MonoBehaviour
             }
         }
     }
-
-
 }
     
