@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class PlayerClass : MonoBehaviour
@@ -42,8 +43,12 @@ public class PlayerClass : MonoBehaviour
     public Camera cameraMain;
     public Camera cameraGO;
     public bool hpUpdate = false;
-    
-    
+
+    public GameObject QEDisplay;
+    public GameObject QTimerUI;
+    public GameObject ETimerUI;
+    public GameObject walkingErrorDisplay;
+    public GameObject walkingErrorSubDisplay;
     
     public PlayerClass(string name)
     {
@@ -74,6 +79,8 @@ public class PlayerClass : MonoBehaviour
                 playerRB.AddForce(Vector3.left* badWalkForce, ForceMode.Impulse);
                 int rand = UnityEngine.Random.Range(1, 3);
                 controller.maxSpeed = rand;
+                walkingErrorDisplay.SetActive(true);
+                walkingErrorSubDisplay.SetActive(true);
                 playerNoise = 30;
                 hwTimerLeft = 0;
             }
@@ -84,6 +91,8 @@ public class PlayerClass : MonoBehaviour
                 hwTimerLeft = 0;
                 controller.maxSpeed = walkSpeed;
                 playerNoise = 0;
+                walkingErrorDisplay.SetActive(false);
+                walkingErrorSubDisplay.SetActive(false);
             }
 
             if (hwTimerRight > hwTimeCap + 1)
@@ -92,6 +101,8 @@ public class PlayerClass : MonoBehaviour
                 playerRB.AddForce(Vector3.right * badWalkForce, ForceMode.Impulse);
                 int rand = UnityEngine.Random.Range(10, 20);
                 controller.maxSpeed = rand;
+                walkingErrorDisplay.SetActive(true);
+                walkingErrorSubDisplay.SetActive(true);
                 playerNoise = 30;
                 hwTimerRight = 0;
             }
@@ -102,6 +113,8 @@ public class PlayerClass : MonoBehaviour
                 hwTimerRight = 0;
                 controller.maxSpeed = walkSpeed;
                 playerNoise = 0;
+                walkingErrorDisplay.SetActive(false);
+                walkingErrorSubDisplay.SetActive(false);
             }
             
         }
@@ -333,17 +346,29 @@ public class PlayerClass : MonoBehaviour
                 hwTimerLeft = 0;
                 hwTimerRight = 0;
                 normalState();
+                QEDisplay.SetActive(false);
+                QTimerUI.SetActive(false);
+                ETimerUI.SetActive(false);
+                walkingErrorDisplay.SetActive(false);
+                walkingErrorSubDisplay.SetActive(false);
+                
             }
             else if (!isHumanWalk)
             {
                 isHumanWalk = true;
                 humanWalk();
+                QEDisplay.SetActive(true);
+                QTimerUI.SetActive(true);
+                ETimerUI.SetActive(true);
+                
             }
             
         }
 
         if (isHumanWalk)
         { 
+            QTimerUI.GetComponent<Text>().text = "" + hwTimerLeft;
+            ETimerUI.GetComponent<Text>().text = "" + hwTimerRight;
             humanWalk();
         }
         
