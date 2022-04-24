@@ -386,6 +386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
+    - target: {fileID: 2390938995967827151, guid: 7a0acaca183f3a649a70f65eaf9b5a16, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 4368931868562013515, guid: 7a0acaca183f3a649a70f65eaf9b5a16, type: 3}
       propertyPath: playerRef
       value: 

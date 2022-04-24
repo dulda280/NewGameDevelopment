@@ -16,7 +16,7 @@ public class AIBehaviour : MonoBehaviour
 
     private Transform target;
     private NavMeshAgent agent;
-    public ThirdPersonController thirdPersonController;
+
     private float timer;
 
     public Vector3 newDestination;
@@ -67,7 +67,7 @@ public class AIBehaviour : MonoBehaviour
         // Instances and timer initialization
         agent = GetComponent<NavMeshAgent>();
         FOVagent = GetComponent<FieldOfView>();
-        thirdPersonController = GetComponent<ThirdPersonController>();
+        
         rb = GetComponent<Rigidbody>();
         timer = wanderTimer;
         
@@ -182,7 +182,7 @@ public class AIBehaviour : MonoBehaviour
                 for x amount of seconds before moving back to the idle state.
             */
             case AI_State.isSearching:
-                if (susSound)
+                if (susSound && _playerDetected == false && _isObserving == false)
                 {
                     Vector3 newPos1 = suspicousPos;
                     agent.SetDestination(newPos1);
