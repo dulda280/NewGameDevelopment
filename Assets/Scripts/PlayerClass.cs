@@ -41,7 +41,6 @@ public class PlayerClass : MonoBehaviour
     public bool isGrabbed = false;
     public bool isGrabbedInven = false;
     public Camera cameraMain;
-    public Camera cameraGO;
     public bool hpUpdate = false;
 
     public GameObject QEDisplay;
@@ -274,14 +273,7 @@ public class PlayerClass : MonoBehaviour
         }
     }
 
-    private void death()
-    {
-        if (hp <= 0)
-        {
-            cameraMain.enabled = false;
-            cameraGO.enabled = true;
-        }
-    }
+
 
     public void Start()
     {
@@ -294,7 +286,6 @@ public class PlayerClass : MonoBehaviour
         print("RigidBody: " + playerRB);
         hp = 4;
         cameraMain.enabled = true;
-        cameraGO.enabled = false;
     }
 
     public void Update()
@@ -396,7 +387,6 @@ public class PlayerClass : MonoBehaviour
         if (hp <= 0)
         {
             cameraMain.enabled = false;
-            cameraGO.enabled = true;
         }
        
 
