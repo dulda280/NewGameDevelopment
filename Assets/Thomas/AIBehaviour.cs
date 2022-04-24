@@ -16,7 +16,7 @@ public class AIBehaviour : MonoBehaviour
 
     private Transform target;
     private NavMeshAgent agent;
-
+    public ThirdPersonController thirdPersonController;
     private float timer;
 
     public Vector3 newDestination;
@@ -42,7 +42,7 @@ public class AIBehaviour : MonoBehaviour
     // Grab variables
     private bool grabBool = false;
     private bool grabTimeDone = false;
-    private float grabTimer = 2.0f;
+    private float grabTimer = 0;
     private float grabTime = 2;
 
     // An Enumerator of the possible AI States
@@ -67,7 +67,7 @@ public class AIBehaviour : MonoBehaviour
         // Instances and timer initialization
         agent = GetComponent<NavMeshAgent>();
         FOVagent = GetComponent<FieldOfView>();
-        
+        thirdPersonController = GetComponent<ThirdPersonController>();
         rb = GetComponent<Rigidbody>();
         timer = wanderTimer;
         
@@ -156,7 +156,7 @@ public class AIBehaviour : MonoBehaviour
                     if (_suspicionTimer > 0.0f)
                     {
                         _suspicionTimer -= Time.deltaTime;
-                        // print("THIS IS A TIMER OF 5 SECONDS " + _suspicionTimer);
+                        print("THIS IS A TIMER OF 5 SECONDS " + _suspicionTimer);
                     }
                     else
                     {
