@@ -7,10 +7,10 @@ public class Upgrades : MonoBehaviour
 {
     public GameObject craftingBench;
 
-    private PlayerClass playerClass;
-    private InventoryScript inventoryClass;
-    private FieldOfView fieldOfViewClass;
-    private AIBehaviour AIBehaviourClass;
+    public PlayerClass playerClass;
+    public InventoryScript inventoryClass;
+    public FieldOfView fieldOfViewClass;
+    public AIBehaviour AIBehaviourClass;
 
     public GameObject upgradeMenu;  // Panel
     public GameObject message;      // Panel
@@ -38,10 +38,10 @@ public class Upgrades : MonoBehaviour
     {
         craftingBench = GameObject.FindGameObjectWithTag("Crafting bench");
 
-        playerClass = GetComponent<PlayerClass>();
-        inventoryClass = GetComponent<InventoryScript>();
-        fieldOfViewClass = GetComponent<FieldOfView>();
-        AIBehaviourClass = GetComponent<AIBehaviour>();
+        // playerClass = GetComponent<PlayerClass>();
+        // inventoryClass = GetComponent<InventoryScript>();
+        // fieldOfViewClass = GetComponent<FieldOfView>();
+        // AIBehaviourClass = GetComponent<AIBehaviour>();
 
     }
 
