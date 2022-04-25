@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a61fb9a5c496484fb7bd347275bd0cd, type: 3}
-  m_Name: WheelPart
+  m_Name: Speedpart
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6640517859433018556, guid: 30ab6c2132ce8894da075407ce43cb23, type: 3}
+  prefab: {fileID: 8930385231737316080, guid: a8796290753b4b54abad145829ad9ac3, type: 3}
   type: 1
   description: Can be used to upgrade your speed.
   weight: 0.2
