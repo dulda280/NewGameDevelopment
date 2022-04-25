@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
+using Random2 = UnityEngine.Random;
 
 public class PlayerClass : MonoBehaviour
 {
@@ -48,7 +49,8 @@ public class PlayerClass : MonoBehaviour
     public GameObject ETimerUI;
     public GameObject walkingErrorDisplay;
     public GameObject walkingErrorSubDisplay;
-    
+
+ 
     public PlayerClass(string name)
     {
         playerName = name;
@@ -145,7 +147,7 @@ public class PlayerClass : MonoBehaviour
                 print("other" + other);
                 scavengeTimerBool = true;
                 print("Scavenging");
-                
+                FindObjectOfType<AudioManager>().Play("Scavenge" + Random2.Range(1, 4));
             }
             if (scavengeTimerBool)
             {
@@ -190,6 +192,7 @@ public class PlayerClass : MonoBehaviour
             {
                 print("Scavenging interrupted");
             }
+           
             scavengeTimerBool = false;
             scavengeTimer = 0;
         } 
@@ -247,10 +250,12 @@ public class PlayerClass : MonoBehaviour
     public void openIven()
     {
         panel.SetActive(true);
+        
     }
     public void closeInven()
     {
         panel.SetActive(false);
+        
     }
 
     private void OnApplicationQuit()
@@ -260,6 +265,7 @@ public class PlayerClass : MonoBehaviour
 
     private void whenGrabbed()
     {
+        FindObjectOfType<AudioManager>().Play("Grabbed");
         if (inventory.Container.Count > 0)
         {
             inventory.Container.RemoveAt(inventory.Container.Count - 1);
@@ -351,7 +357,7 @@ public class PlayerClass : MonoBehaviour
                 QEDisplay.SetActive(true);
                 QTimerUI.SetActive(true);
                 ETimerUI.SetActive(true);
-                
+                FindObjectOfType<AudioManager>().Play("HumanWalk");
             }
             
         }
@@ -367,11 +373,13 @@ public class PlayerClass : MonoBehaviour
         if (Input.GetKeyDown("i") && buttonBool == true)
         {
             openIven();
+            FindObjectOfType<AudioManager>().Play("Inventory");
             buttonBool = false;
         }
         else if (Input.GetKeyDown("i") && buttonBool == false)
         {
             closeInven();
+            FindObjectOfType<AudioManager>().Play("InventoryClose");
             buttonBool = true;
         }
 
