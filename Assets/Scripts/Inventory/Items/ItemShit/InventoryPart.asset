@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f529a1e84712f17449479a3c126386f4, type: 3}
   m_Name: InventoryPart
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4263980991319661712, guid: cb1873bd26c203c4ca99e5476a5bce55, type: 3}
+  prefab: {fileID: 1878740420014771829, guid: d63e35bfbe4f89049a5b175bbaec7ade, type: 3}
   type: 1
   description: Can be used to upgrade your inventory space.
   weight: 0.2

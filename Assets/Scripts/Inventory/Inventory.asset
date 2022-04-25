@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   savePath: /Inventory.save
-  Container: []
+  Container:
+  - ID: 0
+    item: {fileID: 11400000, guid: 20efc2f7e9428a04ea079e8467ae450b, type: 2}
+    amount: 0
+  - ID: 0
+    item: {fileID: 11400000, guid: 20efc2f7e9428a04ea079e8467ae450b, type: 2}
+    amount: 0
+  - ID: 0
+    item: {fileID: 11400000, guid: 20efc2f7e9428a04ea079e8467ae450b, type: 2}
+    amount: 0
+  - ID: 0
+    item: {fileID: 11400000, guid: 20efc2f7e9428a04ea079e8467ae450b, type: 2}
+    amount: 0
   inventorySpace: 0
   maxInven: 0

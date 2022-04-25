@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a61fb9a5c496484fb7bd347275bd0cd, type: 3}
   m_Name: Speedpart
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8930385231737316080, guid: a8796290753b4b54abad145829ad9ac3, type: 3}
+  prefab: {fileID: 1173116797426625661, guid: 6b3b9f7ddbec68a44a4df3eeee0232ba, type: 3}
   type: 1
   description: Can be used to upgrade your speed.
   weight: 0.2

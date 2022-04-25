@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c275bc5f11e734aa5409e84e2a2333, type: 3}
   m_Name: DisguisePart
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8930385231737316080, guid: a8796290753b4b54abad145829ad9ac3, type: 3}
+  prefab: {fileID: 1244888826793674704, guid: 845b323608139204cb32061cb8a6ec2c, type: 3}
   type: 1
   description: Can be used to upgrade your ability to disguise yourself.
   weight: 0.2
