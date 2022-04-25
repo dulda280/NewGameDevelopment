@@ -53,6 +53,7 @@ public class PlayerClass : MonoBehaviour
     public GameObject upgradeInstruct;
     public GameObject upgradePanel;
     public GameObject instructionPanel;
+    public GameObject upradeText;
  
     public PlayerClass(string name)
     {
@@ -337,21 +338,38 @@ public class PlayerClass : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown("B"))
+        if (Input.GetKeyDown("b"))
         {
             //upgrade panel intro
-            
+            upgradeInstruct.SetActive(false);
+            upradeText.SetActive(true);
         }
-        if (Input.GetKeyDown("O"))
+        if (Input.GetKeyDown("o"))
         {
             //instructions
-            
+            if (instructionPanel.activeInHierarchy)
+            {
+                instructionPanel.SetActive(false);
+            }
+            else
+            {
+                instructionPanel.SetActive(true);
+            }
         }
         
-        if (Input.GetKeyDown("U"))
+        if (Input.GetKeyDown("u"))
         {
             //uprade panel
-            
+            if (upgradePanel.activeInHierarchy)
+            {
+                upgradePanel.SetActive(false);
+                upradeText.SetActive(false);
+            }
+            else
+            {
+                upgradePanel.SetActive(true);
+                upradeText.SetActive(true);
+            }
         }
         
         
