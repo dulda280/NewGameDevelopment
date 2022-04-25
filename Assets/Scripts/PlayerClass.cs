@@ -52,7 +52,7 @@ public class PlayerClass : MonoBehaviour
 
     public GameObject upgradeInstruct;
     public GameObject upgradePanel;
-    public GameObject
+    public GameObject instructionPanel;
  
     public PlayerClass(string name)
     {
