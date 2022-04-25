@@ -32,6 +32,8 @@ public class AIBehaviour : MonoBehaviour
     private float dangerZone = 5;
     public float _suspicionTimer = 5.0f;
     private float _grabRadius = 3;
+    private float _timerBetweenAttack = 1.5f;
+    private bool _canAttack = true;
 
     private Vector3 suspicousPos;
     
@@ -250,14 +252,29 @@ public class AIBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerObject.GetComponent<PlayerClass>().isGrabbed = true;
-            playerObject.GetComponent<PlayerClass>().isGrabbedInven = true;
-            grabTimeDone = true;
-            grabBool = false;
-            // Remove item from players inventory
-            Debug.Log("Player Item Removed");
-            ai_state = AI_State.isIdle;
-            
+            if (_canAttack)
+            {
+                playerObject.GetComponent<PlayerClass>().isGrabbed = true;
+                playerObject.GetComponent<PlayerClass>().isGrabbedInven = true;
+                grabTimeDone = true;
+                grabBool = false;
+                // Remove item from players inventory
+                Debug.Log("Player Item Removed");
+                ai_state = AI_State.isIdle;
+                _canAttack = false;
+            }
+        }
+    }
+
+    void UpdateAttackTimer()
+    {
+        if (_timerBetweenAttack > 0)
+        {
+            _timerBetweenAttack -= Time.deltaTime;
+        } else if (_timerBetweenAttack <= 0)
+        {
+            _canAttack = true;
+            _timerBetweenAttack = 1.5f;
         }
     }
 
