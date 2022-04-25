@@ -174,7 +174,7 @@ public class AIBehaviour : MonoBehaviour
                 {
                     Vector3 newPos = player.transform.position;
                     agent.SetDestination(newPos);
-                    AttackGrab();
+                    //AttackGrab();
                 }
                 break;
             /*
@@ -182,7 +182,7 @@ public class AIBehaviour : MonoBehaviour
                 for x amount of seconds before moving back to the idle state.
             */
             case AI_State.isSearching:
-                if (susSound && _playerDetected == false && _isObserving == false)
+                if (susSound && _playerDetected == false && _isObserving == false && _isChasing == false)
                 {
                     Vector3 newPos1 = suspicousPos;
                     agent.SetDestination(newPos1);
@@ -243,6 +243,21 @@ public class AIBehaviour : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             print("Collision AI, Player");
+        }
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerObject.GetComponent<PlayerClass>().isGrabbed = true;
+            playerObject.GetComponent<PlayerClass>().isGrabbedInven = true;
+            grabTimeDone = true;
+            grabBool = false;
+            // Remove item from players inventory
+            Debug.Log("Player Item Removed");
+            ai_state = AI_State.isIdle;
+            
         }
     }
 
