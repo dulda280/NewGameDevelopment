@@ -12,14 +12,14 @@ public class Upgrades : MonoBehaviour
     public FieldOfView fieldOfViewClass;
     public AIBehaviour AIBehaviourClass;
 
-    public GameObject upgradeMenu;  // Panel
-    public GameObject message;      // Panel
+    // public GameObject upgradeMenu;  // Panel
+    // public GameObject message;      // Panel
 
     private bool canCraft;      // Is the player close enough to the bench? 
     [Range(0, 360)]
     public float angle = 180f;  // View angle
     public float radius = 5f;   // Distance from player to bench
-    public float craftingTime;  // How long it takes to craft/upgrade
+    //public float craftingTime;  // How long it takes to craft/upgrade
 
     public LayerMask craftingBenchMask;
     public LayerMask obstructionMask;
@@ -69,7 +69,7 @@ public class Upgrades : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canCraft = true;
-                    ShowMessage();
+                    // ShowMessage();
                 }
                 else
                     canCraft = false;
@@ -83,6 +83,7 @@ public class Upgrades : MonoBehaviour
         return canCraft;
     }
 
+    /*
     void ShowMessage()
     {
         // Debug.Log("You can upgrade by pressing 1, 2, 3 or 4");
@@ -91,6 +92,7 @@ public class Upgrades : MonoBehaviour
             message.SetActive(true);
         }
     }
+    */ 
 
     void MakeUpgrade()
     {
@@ -105,11 +107,10 @@ public class Upgrades : MonoBehaviour
         }
         */
 
-        Debug.Log("You should press the E button.");
+        // Debug.Log("You should press the E button.");
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("The button E was pressed");
             UpgradeInventory();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
