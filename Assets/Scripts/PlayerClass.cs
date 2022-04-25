@@ -50,6 +50,9 @@ public class PlayerClass : MonoBehaviour
     public GameObject walkingErrorDisplay;
     public GameObject walkingErrorSubDisplay;
 
+    public GameObject upgradeInstruct;
+    public GameObject upgradePanel;
+    public GameObject
  
     public PlayerClass(string name)
     {
@@ -333,8 +336,25 @@ public class PlayerClass : MonoBehaviour
             }
             
         }
-        
 
+        if (Input.GetKeyDown("B"))
+        {
+            //upgrade panel intro
+            
+        }
+        if (Input.GetKeyDown("O"))
+        {
+            //instructions
+            
+        }
+        
+        if (Input.GetKeyDown("U"))
+        {
+            //uprade panel
+            
+        }
+        
+        
         if (Input.GetKeyDown(KeyCode.Z))
         {
             if (isHumanWalk)

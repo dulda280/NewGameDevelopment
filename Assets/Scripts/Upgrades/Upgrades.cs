@@ -145,7 +145,7 @@ public class Upgrades : MonoBehaviour
                 playerClass.runSpeed -= 1;
             }
 
-            // man bliver nemmere opdaget, når man har større inventory
+            // man bliver nemmere opdaget, nï¿½r man har stï¿½rre inventory
             fieldOfViewClass.radius += 1;
             if (AIBehaviourClass._suspicionTimer >= 2.5)
             {
@@ -192,7 +192,7 @@ public class Upgrades : MonoBehaviour
             playerClass.disguiseVal -= upgrDisguiseCost; // Cost of upgrade
             upgrDisguiseCost += 1; // It gets more expensive to upgrade this next time
 
-            // Man skal tættere på AIs for at blive opdaget og man skal være i deres FoV i længere tid.
+            // Man skal tï¿½ttere pï¿½ AIs for at blive opdaget og man skal vï¿½re i deres FoV i lï¿½ngere tid.
             if (fieldOfViewClass.radius >= 3)
             {
                 fieldOfViewClass.radius -= 3;
@@ -200,7 +200,7 @@ public class Upgrades : MonoBehaviour
             else
             {
                 fieldOfViewClass.radius = 0;
-                Debug.Log("You won the game!"); // Man vinder, når AIs ikke længere ser spilleren
+                Debug.Log("You won the game!"); // Man vinder, nï¿½r AIs ikke lï¿½ngere ser spilleren
             }
 
             AIBehaviourClass._suspicionTimer += 1.0f;
