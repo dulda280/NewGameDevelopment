@@ -71,13 +71,16 @@ MonoBehaviour:
   isGrabbed: 0
   isGrabbedInven: 0
   cameraMain: {fileID: 0}
-  cameraGO: {fileID: 0}
   hpUpdate: 0
   QEDisplay: {fileID: 0}
   QTimerUI: {fileID: 0}
   ETimerUI: {fileID: 0}
   walkingErrorDisplay: {fileID: 0}
   walkingErrorSubDisplay: {fileID: 0}
+  upgradeInstruct: {fileID: 0}
+  upgradePanel: {fileID: 0}
+  instructionPanel: {fileID: 0}
+  upradeText: {fileID: 0}
 --- !u!54 &7218687826123878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -105,8 +108,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0339738, y: 2.5460644, z: 1.0043335}
-  m_Center: {x: 0.30228305, y: 0.28571504, z: 0.30026117}
+  m_Size: {x: 1.1671078, y: 2.5460644, z: 1.2172337}
+  m_Center: {x: 0.2926133, y: 0.28571504, z: 0.3022535}
 --- !u!114 &7507701174528799978
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -83,7 +83,7 @@ public class AIBehaviour : MonoBehaviour
 
         Behaviour();
         LineOfSightDetection();
-
+        //UpdateAttackTimer();
 
         // Debug Input Actions
         if (ThirdPersonController.playerActionsAsset.Player.baslls.triggered)
@@ -252,6 +252,7 @@ public class AIBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _canAttack = true;
             if (_canAttack)
             {
                 playerObject.GetComponent<PlayerClass>().isGrabbed = true;
@@ -261,7 +262,7 @@ public class AIBehaviour : MonoBehaviour
                 // Remove item from players inventory
                 Debug.Log("Player Item Removed");
                 ai_state = AI_State.isIdle;
-                _canAttack = false;
+                //_canAttack = false;
             }
         }
     }

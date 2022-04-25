@@ -9,7 +9,7 @@ using Random2 = UnityEngine.Random;
 public class PlayerClass : MonoBehaviour
 {
     public static string playerName = "";
-    public int hp;
+    public float hp;
     private float weight;
     private int carryCap;
     public static bool isWalking;
@@ -278,7 +278,7 @@ public class PlayerClass : MonoBehaviour
         }
         else
         {
-            hp -= 4;
+            hp -= 0.1f;
             hpUpdate = true;
         }
     }
